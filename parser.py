@@ -1,6 +1,7 @@
 from argparse import ArgumentParser
 from git_undo_exception import GitUndoException
 
+
 class Parser:
 
     class ParserException(GitUndoException):
