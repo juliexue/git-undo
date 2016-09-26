@@ -2,6 +2,7 @@ import sys
 from parser import Parser
 from router import Router
 
+
 def main():
     parser = Parser()
     try:
