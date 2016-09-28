@@ -6,7 +6,7 @@ from router import Router
 def main():
     parser = Parser()
     try:
-        command_list = parser.parse(sys.argv[1:])
+        command_list = parser.parse()
     except Parser.ParserException as e:
         sys.exit(e)
 
