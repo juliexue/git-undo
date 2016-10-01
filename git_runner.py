@@ -7,7 +7,7 @@ class GitRunner:
         self.timeline = timeline
 
     def run(self, command_list):
-        if command_list[0] == 'commit':
+        if command_list[0] == 'commit' or command_list[0] == 'add':
             self.timeline.add(command_list)
 
         self.forward_command(command_list)

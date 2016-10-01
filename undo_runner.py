@@ -1,3 +1,5 @@
+import os
+
 class UndoRunner:
 
     def __init__(self, timeline):
@@ -16,6 +18,19 @@ class UndoRunner:
               'was executed is "{}"'.format(last_line)
         prompt_input = raw_input('Do you want to undo that command? ([y]/N) ')
         if prompt_input == '' or prompt_input.lower() == 'y':
+
+            output = None
+
+            array = last_line.split()
+            if array[0] == 'add' and array[1] == '.':
+                os.system('git reset HEAD .')
+            elif array[0] == 'add':
+                os.system('git reset HEAD ' + ' '.join(array[1:]))
+            elif array[0] == 'commit' and array[1] == '-m':
+                os.system('git reset HEAD~1 --soft')
+            elif array[0] == 'commit' and array[1] == '-am':
+                os.system('git reset HEAD~1')
+
             self.timeline.pop_last_line()
             print 'Done :)'
 
