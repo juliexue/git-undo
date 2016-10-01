@@ -26,5 +26,8 @@ class Parser:
         else:
             for i, argument in enumerate(command_list):
                 if argument == '-m':
-                    command_list[i+1] = '\"' + command_list[i+1] + '\"'
+                    try:
+                        command_list[i+1] = '\"' + command_list[i+1] + '\"'
+                    except IndexError:
+                        raise Parser.ParserException('Missing commit message!')
             return command_list
