@@ -1,5 +1,4 @@
 import os
-import pexpect
 
 
 class GitRunner:
@@ -16,9 +15,4 @@ class GitRunner:
     def forward_command(self, command_list):
         command_list.insert(0, 'git')
 
-        if len(command_list) == 2 and command_list[1] == 'commit':
-            os.system(' '.join(command_list))
-        else:
-            output = pexpect.run(' '.join(command_list))
-            if output:
-                print output
+        os.system(' '.join(command_list))
