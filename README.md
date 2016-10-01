@@ -1,5 +1,3 @@
-# git-undo
+# Git Undo
 
-To install the pip packages required for the project, run:
-
-pip install -r requirements.txt
+A terminal wrapper around Git that supports undo of commonly used Git commands
