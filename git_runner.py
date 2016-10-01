@@ -10,3 +10,11 @@ class GitRunner:
         if command_list[0] == 'commit':
             self.timeline.add(command_list)
 
+        self.forward_command(command_list)
+
+    def forward_command(self, command_list):
+        command_list.insert(0, 'git')
+        output = pexpect.run(' '.join(command_list))
+        if output:
+            print output
+
