@@ -25,9 +25,9 @@ class Parser:
         command_list = _dict['command']
         if len(command_list) == 0:
             raise Parser.ParserException('Command not supplied.')
-        else:
-            command = self.get_command(command_list)
-            return command.fix_input_from_shell()
+
+        command = self.get_command(command_list)
+        return command.fix_input_from_shell()
 
     def get_command(self, command_list):
         switcher = {
