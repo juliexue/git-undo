@@ -3,8 +3,6 @@ import argparse
 from git_undo_exception import GitUndoException
 from commands.commit import CommitCommand
 from commands.unknown import UnknownCommand
-from commands.status import StatusCommand
-
 
 class Parser:
 
@@ -34,6 +32,5 @@ class Parser:
     def get_command(self, command_list):
         switcher = {
                 "commit": CommitCommand(command_list),
-                "status": StatusCommand(command_list),
-                }
+        }
         return switcher.get(command_list[0], UnknownCommand(command_list))
