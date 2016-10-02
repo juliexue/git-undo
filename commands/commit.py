@@ -3,6 +3,10 @@ from command import Command
 
 
 class CommitCommand(Command):
+    mappings = {
+        '-m': 'git reset HEAD~1 --soft',
+        '-am': 'git reset HEAD~1',
+    }
 
     def __init__(self, command_list):
         self.command_list = command_list
@@ -14,10 +18,5 @@ class CommitCommand(Command):
         return self.command_list
 
     def undo_command(self):
-        mappings = {
-            '-m': 'git reset HEAD~1 --soft',
-            '-am': 'git reset HEAD~1',
-        }
-
         args = self.command_list[1]
-        os.system(mappings.get(args, ''))
+        os.system(CommitCommand.mappings.get(args, ''))
