@@ -1,5 +1,8 @@
 import os
 
+from commands.add import AddCommand
+from commands.commit import CommitCommand
+
 class UndoRunner:
 
     def __init__(self, timeline):
@@ -21,18 +24,14 @@ class UndoRunner:
 
             output = None
 
-            array = last_line.split()
-            if array[0] == 'add' and array[1] == '.':
-                os.system('git reset HEAD .')
-            elif array[0] == 'add':
-                os.system('git reset HEAD ' + ' '.join(array[1:]))
-            elif array[0] == 'commit' and array[1] == '-m':
-                os.system('git reset HEAD~1 --soft')
-            elif array[0] == 'commit' and array[1] == '-am':
-                os.system('git reset HEAD~1')
+            command_list = last_line.split()
+            if command_list[0] == 'add':
+                AddCommand(command_list).undo_command()
+            elif command_list[0] == 'commit':
+                CommitCommand(command_list).undo_command()
 
             self.timeline.pop_last_line()
-            print 'Done :)'
+            print 'Done :)asdfasd'
 
         # At this point, last_line = the line of the most recent command
         # Do something with it

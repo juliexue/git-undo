@@ -6,3 +6,5 @@ class Command:
     def fix_input_from_shell(self):
         pass
 
+    def undo_command(self):
+        pass

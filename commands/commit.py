@@ -11,3 +11,12 @@ class CommitCommand(Command):
             if argument == '-m' and i+1 < len(self.command_list):
                 self.command_list[i+1] = '\"' + self.command_list[i+1] + '\"'
         return self.command_list
+
+    def undo_command(self):
+        dictionary = {
+            '-m': 'git reset HEAD~1 --soft',
+            '-am': 'git reset HEAD~1',
+        }
+
+        args = self.command_list[1]
+        os.system(dictionary[args])
