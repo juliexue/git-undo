@@ -23,8 +23,6 @@ class UndoRunner:
         prompt_input = raw_input('Do you want to undo that command? ([y]/N) ')
         if prompt_input == '' or prompt_input.lower() == 'y':
 
-            output = None
-
             command_list = last_line.split()
             if command_list[0] == 'add':
                 AddCommand(command_list).undo_command()
