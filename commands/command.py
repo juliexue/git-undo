@@ -4,5 +4,7 @@ class Command:
         self.command_list = command_list
 
     def fix_input_from_shell(self):
-        pass
+        return self.command_list
 
+    def undo_command(self):
+        pass

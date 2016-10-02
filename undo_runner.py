@@ -1,3 +1,9 @@
+import os
+
+from commands.add import AddCommand
+from commands.commit import CommitCommand
+
+
 class UndoRunner:
 
     def __init__(self, timeline):
@@ -16,6 +22,13 @@ class UndoRunner:
               'was executed is "{}"'.format(last_line)
         prompt_input = raw_input('Do you want to undo that command? ([y]/N) ')
         if prompt_input == '' or prompt_input.lower() == 'y':
+
+            command_list = last_line.split()
+            if command_list[0] == 'add':
+                AddCommand(command_list).undo_command()
+            elif command_list[0] == 'commit':
+                CommitCommand(command_list).undo_command()
+
             self.timeline.pop_last_line()
             print 'Done :)'
 
