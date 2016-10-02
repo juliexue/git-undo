@@ -20,3 +20,6 @@ class CommitCommand(Command):
     def undo_command(self):
         args = self.command_list[1]
         os.system(CommitCommand.mappings.get(args, ''))
+
+    def record(self, timeline):
+        timeline.add(self.command_list)

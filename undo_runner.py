@@ -1,7 +1,6 @@
 import os
 
-from commands.add import AddCommand
-from commands.commit import CommitCommand
+from commands.switcher import get_command
 
 
 class UndoRunner:
@@ -28,10 +27,8 @@ class UndoRunner:
         if prompt_input == '' or prompt_input.lower() == 'y':
 
             command_list = last_line.split()
-            if command_list[0] == 'add':
-                AddCommand(command_list).undo_command()
-            elif command_list[0] == 'commit':
-                CommitCommand(command_list).undo_command()
+            command = get_command(command_list)
+            command.undo_command()
 
             self.timeline.pop_last_line()
             print UndoRunner.strings['finished']
