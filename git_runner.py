@@ -1,5 +1,7 @@
 import os
 
+from commands.switcher import get_command
+
 
 class GitRunner:
 
@@ -7,8 +9,8 @@ class GitRunner:
         self.timeline = timeline
 
     def run(self, command_list):
-        if command_list[0] == 'commit' or command_list[0] == 'add':
-            self.timeline.add(command_list)
+        command = get_command(command_list)
+        command.record(self.timeline)
 
         command_list.insert(0, 'git')
         os.system(' '.join(command_list))

@@ -8,3 +8,7 @@ class Command:
 
     def undo_command(self):
         pass
+
+    def record(self, timeline):
+        pass
+        

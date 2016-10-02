@@ -17,3 +17,7 @@ class AddCommand(Command):
             os.system(mapping[args])
         else:
             os.system('git reset HEAD ' + args)
+
+    def record(self, timeline):
+        timeline.add(self.command_list)
+
