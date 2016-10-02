@@ -1,5 +1,6 @@
 import os
 
+
 class GitRunner:
 
     def __init__(self, timeline):

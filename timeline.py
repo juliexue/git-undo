@@ -1,8 +1,9 @@
 import fileinput
 
+
 class Timeline:
 
-    def __init__(self, path = '.git/undo.timeline'):
+    def __init__(self, path='.git/undo.timeline'):
         self.path = path
 
     # Add the line to end of file
@@ -27,7 +28,7 @@ class Timeline:
     # Pop the last line from
     def pop_last_line(self):
         prev_line = None
-        for line in fileinput.input(self.path, inplace = True):
+        for line in fileinput.input(self.path, inplace=True):
             if prev_line:
                 print prev_line.rstrip()
             prev_line = line

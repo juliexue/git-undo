@@ -4,6 +4,7 @@ from parser import Parser
 from router import Router
 from timeline import Timeline
 
+
 def main():
     parser = Parser()
     try:

@@ -4,6 +4,7 @@ from git_undo_exception import GitUndoException
 from commands.commit import CommitCommand
 from commands.unknown import UnknownCommand
 
+
 class Parser:
 
     class ParserException(GitUndoException):
@@ -11,10 +12,12 @@ class Parser:
 
     def __init__(self):
         self.parser = argparse.ArgumentParser(
-            description = ('Wrapper utility around Git to provide undo/redo functions.'),
+            description=(
+                'Wrapper utility around Git to provide undo/redo functions.'
+            ),
         )
 
-        self.parser.add_argument('command', nargs = argparse.REMAINDER)
+        self.parser.add_argument('command', nargs=argparse.REMAINDER)
         # TODO: Optional arguments we can pass in. Example: Dry-run
 
     def parse(self):
