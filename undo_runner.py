@@ -3,6 +3,7 @@ import os
 from commands.add import AddCommand
 from commands.commit import CommitCommand
 
+
 class UndoRunner:
 
     def __init__(self, timeline):
@@ -31,7 +32,7 @@ class UndoRunner:
                 CommitCommand(command_list).undo_command()
 
             self.timeline.pop_last_line()
-            print 'Done :)asdfasd'
+            print 'Done :)'
 
         # At this point, last_line = the line of the most recent command
         # Do something with it
