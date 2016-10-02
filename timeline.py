@@ -3,7 +3,6 @@ import fileinput
 
 class Timeline:
 
-    # TODO: Once the program is moved to .git, change the path to undo.timeline
     def __init__(self, path='.git/undo.timeline'):
         self.path = path
 
