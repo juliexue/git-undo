@@ -5,7 +5,7 @@ from commands.switcher import get_command
 
 
 
-class Parser:
+class CommandParser:
 
     class ParserException(GitUndoException):
         pass
@@ -24,7 +24,7 @@ class Parser:
         command_list = vars(self.parser.parse_args())
         command_list = command_list['command']
         if len(command_list) == 0:
-            raise Parser.ParserException('Command not supplied.')
+            raise CommandParser.ParserException('Command not supplied.')
 
         command = get_command(command_list)
         return command.fix_input_from_shell()
