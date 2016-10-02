@@ -14,7 +14,7 @@ class AddCommand(Command):
     def undo_command(self):
         args = ' '.join(self.command_list[1:])
         if args in AddCommand.mappings:
-            os.system(mapping[args])
+            os.system(AddCommand.mappings[args])
         else:
             os.system('git reset HEAD ' + args)
 
