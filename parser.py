@@ -4,6 +4,7 @@ from git_undo_exception import GitUndoException
 from commands.switcher import get_command
 
 
+
 class Parser:
 
     class ParserException(GitUndoException):
