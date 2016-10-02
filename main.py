@@ -1,15 +1,15 @@
 import sys
 
-from parser import Parser
+from command_parser import CommandParser
 from router import Router
 from timeline import Timeline
 
 
 def main():
-    parser = Parser()
+    parser = CommandParser()
     try:
         command_list = parser.parse()
-    except Parser.ParserException as e:
+    except CommandParser.ParserException as e:
         sys.exit(e)
 
     router = Router(command_list)
