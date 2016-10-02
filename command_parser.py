@@ -4,7 +4,6 @@ from git_undo_exception import GitUndoException
 from commands.switcher import get_command
 
 
-
 class CommandParser:
 
     class ParserException(GitUndoException):
@@ -28,4 +27,3 @@ class CommandParser:
 
         command = get_command(command_list)
         return command.fix_input_from_shell()
-

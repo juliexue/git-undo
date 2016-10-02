@@ -4,7 +4,7 @@ from commands.switcher import get_command
 
 
 class UndoRunner:
-    strings = {
+    STRINGS = {
         'last_command': 'The last supported command that was executed is "{}"',
         'undo_check': 'Do you want to undo that command? ([y]/N) ',
         'no_commands': 'No git commands to undo!',
@@ -19,11 +19,11 @@ class UndoRunner:
         last_line = self.timeline.get_last_line()
 
         if not last_line:
-            print UndoRunner.strings['no_commands']
+            print UndoRunner.STRINGS['no_commands']
             return
 
-        print UndoRunner.strings['last_command'].format(last_line)
-        prompt_input = raw_input(UndoRunner.strings['undo_check'])
+        print UndoRunner.STRINGS['last_command'].format(last_line)
+        prompt_input = raw_input(UndoRunner.STRINGS['undo_check'])
         if prompt_input == '' or prompt_input.lower() == 'y':
 
             command_list = last_line.split()
@@ -31,7 +31,7 @@ class UndoRunner:
             command.undo_command()
 
             self.timeline.pop_last_line()
-            print UndoRunner.strings['finished']
+            print UndoRunner.STRINGS['finished']
 
         # At this point, last_line = the line of the most recent command
         # Do something with it

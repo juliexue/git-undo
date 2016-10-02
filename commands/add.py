@@ -20,4 +20,3 @@ class AddCommand(Command):
 
     def record(self, timeline):
         timeline.add(self.command_list)
-

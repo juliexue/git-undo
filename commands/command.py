@@ -11,4 +11,3 @@ class Command:
 
     def record(self, timeline):
         pass
-        
