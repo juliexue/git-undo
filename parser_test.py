@@ -17,11 +17,9 @@ class TestParser(unittest.TestCase):
         command = CommandParser().get_command(cl)
         self.assertTrue(isinstance(command, CommitCommand))
 
-        '''
         unknown = ['blah', '-v']
-        unknown_command = Parser().get_command(cl)
+        unknown_command = CommandParser().get_command(unknown)
         self.assertTrue(isinstance(unknown_command, UnknownCommand))
-        '''
 
 if __name__ == '__main__':
     unittest.main()
