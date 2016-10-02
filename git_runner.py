@@ -1,6 +1,5 @@
 import os
 
-
 class GitRunner:
 
     def __init__(self, timeline):
@@ -10,9 +9,5 @@ class GitRunner:
         if command_list[0] == 'commit' or command_list[0] == 'add':
             self.timeline.add(command_list)
 
-        self.forward_command(command_list)
-
-    def forward_command(self, command_list):
         command_list.insert(0, 'git')
-
         os.system(' '.join(command_list))
