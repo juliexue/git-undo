@@ -8,11 +8,18 @@ class Timeline:
     }
 
     # Add the line to end of file
-    def add(self, command_list):
+    def add(self, command_list, path):
         new_line = ' '.join(command_list) + '\n'
-        with open(Timeline.PATHS['undo'], 'a') as file:  # a = append mode
+        with open(path, 'a') as file:  # a = append mode
             file.write(new_line)
-            # TODO erase REDO file
+
+    def add_undo(self, command_list):
+        self.add(command_list, Timeline.PATHS['undo'])
+        with open(Timeline.PATHS['redo'], 'w') as file:  # w = write mode
+            file.write('')
+
+    def add_redo(self, command_list):
+        self.add(command_list, Timeline.PATHS['redo'])
 
     # Return the last line of the file
     # Return None if file is not found or empty
@@ -42,7 +49,8 @@ class Timeline:
             prev_line = line
 
     def pop_last_undo(self):
-        return self.pop_last(Timeline.PATHS['undo'])
-
+        self.add_redo(self.get_last_undo())
+        self.pop_last(Timeline.PATHS['undo'])
+        
     def pop_last_redo(self):
-        return self.pop_last(Timeline.PATHS['redo'])
+        self.pop_last(Timeline.PATHS['redo'])

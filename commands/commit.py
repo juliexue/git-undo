@@ -22,4 +22,4 @@ class CommitCommand(Command):
         os.system(CommitCommand.mappings.get(args, ''))
 
     def record(self, timeline):
-        timeline.add(self.command_list)
+        timeline.add_undo(self.command_list)

@@ -28,5 +28,5 @@ class RedoRunner:
             command = get_command(command_list)
             command.redo_command()
 
-            self.timeline.pop_last_undo()
+            self.timeline.pop_last_redo()
             print RedoRunner.STRINGS['finished']
