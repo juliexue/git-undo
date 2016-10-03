@@ -6,8 +6,9 @@ from commands.switcher import get_command
 class RedoRunner:
     STRINGS = {
         'last_command': 'The last command that was undone is "{}"',
-        'redo_check': 'Do you want to undo that command? ([y]/N) ',
+        'redo_check': 'Do you want to redo that command? ([y]/N) ',
         'no_commands': 'No git commands to redo!',
+        'finished': 'Done!',
     }
 
     def __init__(self, timeline):

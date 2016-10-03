@@ -49,8 +49,9 @@ class Timeline:
             prev_line = line
 
     def pop_last_undo(self):
-        self.add_redo(self.get_last_undo())
+        last_line = self.get_last_undo()
+        self.add_redo(last_line.split())
         self.pop_last(Timeline.PATHS['undo'])
-        
+
     def pop_last_redo(self):
         self.pop_last(Timeline.PATHS['redo'])
