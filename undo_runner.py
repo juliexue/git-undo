@@ -28,7 +28,7 @@ class UndoRunner:
         if prompt_input == '' or prompt_input.lower() == 'y':
             command_list = last_line.split()
             command = get_command(command_list)
-            command.redo_command()
+            command.undo_command()
 
             self.timeline.pop_last_undo()
             print UndoRunner.STRINGS['finished']

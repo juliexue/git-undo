@@ -15,6 +15,7 @@ class RedoRunner:
         self.timeline = timeline
 
     def run(self, command_list):
+        # use command_list for any flag var
         last_line = self.timeline.get_last_redo()
 
         if not last_line:
@@ -25,9 +26,7 @@ class RedoRunner:
         prompt_input = raw_input(RedoRunner.STRINGS['redo_check'])
 
         if prompt_input == '' or prompt_input.lower() == 'y':
-            command_list = last_line.split()
-            command = get_command(command_list)
-            command.redo_command()
+            os.system('git ' + last_line)
 
             self.timeline.pop_last_redo()
             print RedoRunner.STRINGS['finished']
