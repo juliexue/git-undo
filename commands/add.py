@@ -19,5 +19,4 @@ class AddCommand(Command):
             os.system('git reset HEAD ' + args)
 
     def record(self, timeline):
-        timeline.add(self.command_list)
-
+        timeline.add_undo(self.command_list)

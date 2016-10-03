@@ -1,5 +1,6 @@
 from git_runner import GitRunner
 from undo_runner import UndoRunner
+from redo_runner import RedoRunner
 from undo_state_runner import UndoStateRunner
 
 
@@ -12,7 +13,8 @@ class Router:
         git_command_head = self.command_list[0]
         if git_command_head == 'undo':
             return UndoRunner
-        elif git_command_head == 'undo-state':
+        if git_command_head == 'redo':
+            return RedoRunner
+        if git_command_head == 'undo-state':
             return UndoStateRunner
-        else:
-            return GitRunner
+        return GitRunner

@@ -2,7 +2,7 @@ import os
 
 
 class UndoStateRunner:
-    strings = {
+    STRINGS = {
         'undo_reflog_command': 'git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}};'
     }
 
@@ -10,4 +10,4 @@ class UndoStateRunner:
         self.timeline = timeline
 
     def run(self, command_list):
-        os.system(UndoStateRunner.strings['undo_reflog_command'])
+        os.system(UndoStateRunner.STRINGS['undo_reflog_command'])

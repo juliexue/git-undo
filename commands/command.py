@@ -9,6 +9,8 @@ class Command:
     def undo_command(self):
         pass
 
+    def redo_command(self):
+        pass
+
     def record(self, timeline):
         pass
-        
